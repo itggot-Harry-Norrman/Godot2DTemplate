@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://cp82senfdlk5j"]
+
+[ext_resource type="Script" uid="uid://btnvn35vtrb61" path="res://Scripts/Singletons/GameController.gd" id="1_uxwxl"]
+[ext_resource type="Shader" uid="uid://bpypc4m4arse0" path="res://addons/scene_manager/Dissolve2d.gdshader" id="2_3f7vq"]
+[ext_resource type="Texture2D" uid="uid://cgmfhc32g6va6" path="res://addons/scene_manager/shader_patterns/diagonal.png" id="3_2d6qo"]
+[ext_resource type="Animation" uid="uid://dxr1r78uxitcq" path="res://addons/scene_manager/ShaderFade.tres" id="4_vyu86"]
+[ext_resource type="Script" uid="uid://d0sgq0c87vda2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_pyy6r"]
+[ext_resource type="Script" uid="uid://fwjj16m2ifqm" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_14m05"]
+[ext_resource type="Script" uid="uid://643jof58isxx" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_lrbrr"]
+
+[sub_resource type="Resource" id="Resource_omgp7"]
+script = ExtResource("7_lrbrr")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd858"]
+shader = ExtResource("2_3f7vq")
+shader_parameter/dissolve_texture = ExtResource("3_2d6qo")
+shader_parameter/dissolve_amount = 0.0
+shader_parameter/fade_color = Color(0, 0, 0, 1)
+shader_parameter/fade = false
+shader_parameter/inverted = false
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nyekr"]
+_data = {
+&"ShaderFade": ExtResource("4_vyu86")
+}
+
+[node name="GameController" type="Node" node_paths=PackedStringArray("world_2d", "gui", "shader_pattern", "scene_fade_anim")]
+script = ExtResource("1_uxwxl")
+world_2d = NodePath("World2D")
+gui = NodePath("GUI")
+starting_2d_scene = "uid://x2s3t006wfl1"
+starting_gui_scene = "uid://4l5j25yhumdb"
+shader_pattern = NodePath("CanvasLayer/ColorRect")
+scene_fade_anim = NodePath("AnimationPlayer")
+
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="PhantomCamera2D" type="Node2D" parent="World2D"]
+top_level = true
+position = Vector2(576, 325)
+script = ExtResource("6_14m05")
+follow_mode = 2
+snap_to_pixel = true
+tween_resource = SubResource("Resource_omgp7")
+follow_damping = true
+draw_limits = true
+_preview_noise = false
+noise_emitter_layer = 1
+
+[node name="Camera2D" type="Camera2D" parent="World2D" groups=["cameras"]]
+position = Vector2(576, 325)
+
+[node name="PhantomCameraHost" type="Node" parent="World2D/Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_pyy6r")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_dd858")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nyekr")
+}

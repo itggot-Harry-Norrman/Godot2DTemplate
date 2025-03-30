@@ -21,6 +21,7 @@ Globals="*res://Scripts/Singletons/Globals.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GameController="*res://Scenes/AutoloadScenes/GameController.tscn"
+AudioManager="*res://Scenes/AutoloadScenes/AudioManager.tscn"
 
 [editor_plugins]
 

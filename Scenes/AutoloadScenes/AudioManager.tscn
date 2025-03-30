@@ -1,21 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqg8y8aj5kcc1"]
+[gd_scene load_steps=2 format=3 uid="uid://cck1rnmbl0w21"]
 
-[ext_resource type="Script" uid="uid://bbl42os1ivc40" path="res://Scripts/Auditory/AudioManager.gd" id="1_hxxi2"]
-[ext_resource type="Script" uid="uid://tleoxxwpkhxy" path="res://Scripts/Auditory/SoundEffectSetting.gd" id="2_ddhb0"]
-[ext_resource type="Resource" uid="uid://uanqqx5wxy30" path="res://assets/Audio/SFX_Resources/HammerSwingSmall.tres" id="3_1e16u"]
-[ext_resource type="Resource" uid="uid://cjb1psfhr4k4o" path="res://assets/Audio/SFX_Resources/HammerSwingLarge.tres" id="4_gehfx"]
-[ext_resource type="Resource" uid="uid://bxj02vo7pukc2" path="res://assets/Audio/SFX_Resources/HammerBlockingStart.tres" id="5_l3ybn"]
-[ext_resource type="Resource" uid="uid://dvuj202nnviko" path="res://assets/Audio/SFX_Resources/HammerBlockingEnd.tres" id="6_wnyey"]
-[ext_resource type="Resource" uid="uid://d2iamvmaxejcx" path="res://assets/Audio/SFX_Resources/HammerBlockingRepeating.tres" id="7_mhto2"]
-[ext_resource type="Resource" uid="uid://cq8ylx2jxhwv7" path="res://assets/Audio/SFX_Resources/HammerEndGround.tres" id="8_sjfxo"]
-[ext_resource type="Resource" uid="uid://d1ajxj5k1tp3r" path="res://assets/Audio/SFX_Resources/HammerHitSmall.tres" id="9_v3sd5"]
-[ext_resource type="Resource" uid="uid://dclktr5fyulyg" path="res://assets/Audio/SFX_Resources/JumpingHeavyBuildUp.tres" id="10_0hcmn"]
-[ext_resource type="Resource" uid="uid://d11buw3eowb8x" path="res://assets/Audio/SFX_Resources/JumpingLandingExplosion.tres" id="11_hm7fm"]
-[ext_resource type="Resource" uid="uid://bctewf7qf2v8j" path="res://assets/Audio/SFX_Resources/ShotgunSingle.tres" id="12_ybojx"]
-[ext_resource type="Resource" uid="uid://oiyv1av3oeu5" path="res://assets/Audio/SFX_Resources/SmgSingle.tres" id="13_vakn0"]
-[ext_resource type="Resource" uid="uid://cd1j784wxtrxv" path="res://assets/Audio/SFX_Resources/PistolSingle.tres" id="14_ukhut"]
-[ext_resource type="Resource" uid="uid://8hi163a7e80v" path="res://assets/Audio/SFX_Resources/ExplosionSmall.tres" id="15_sg801"]
+[ext_resource type="Script" uid="uid://ba41q43x06rbs" path="res://Scripts/Auditory/AudioManager.gd" id="1_hxxi2"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_hxxi2")
-sound_effects = Array[ExtResource("2_ddhb0")]([ExtResource("3_1e16u"), ExtResource("4_gehfx"), ExtResource("5_l3ybn"), ExtResource("6_wnyey"), ExtResource("7_mhto2"), ExtResource("8_sjfxo"), ExtResource("9_v3sd5"), ExtResource("10_0hcmn"), ExtResource("11_hm7fm"), ExtResource("12_ybojx"), ExtResource("13_vakn0"), ExtResource("14_ukhut"), ExtResource("15_sg801")])
